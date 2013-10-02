@@ -6,6 +6,7 @@ then
 	echo "File $FILE exists..."
 else
     cd $RAILS_STACK_PATH
-    spree install --auto-accept
+    echo | bundle exec rake db:seed
+    bundle exec rake spree_sample:load
     touch /tmp/install_done
 fi
